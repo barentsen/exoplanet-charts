@@ -1,0 +1,45 @@
+lines.color: white
+patch.edgecolor: white
+
+text.color: white
+
+axes.facecolor: black
+axes.edgecolor: white
+axes.labelcolor: white
+axes.prop_cycle: cycler('color', ['8dd3c7', 'feffb3', 'bfbbd9', 'fa8174', '81b1d2', 'fdb462', 'b3de69', 'bc82bd', 'ccebc4', 'ffed6f'])
+
+xtick.color: white
+ytick.color: white
+
+grid.color: white
+
+figure.figsize   : 8.485, 6
+figure.facecolor: black
+figure.edgecolor: black
+
+savefig.facecolor: black
+savefig.edgecolor: black
+
+font.size: 20
+font.family: sans-serif
+font.sans-serif: Lato
+font.weight : 500
+
+figure.titleweight : 500
+axes.titlesize : 20
+axes.labelsize : 16
+axes.labelweight: 500
+
+xtick.major.size     : 8
+xtick.minor.size     : 4
+xtick.major.pad      : 4
+xtick.minor.pad      : 4
+xtick.labelsize      : 12
+xtick.direction      : in     # direction: in or out
+
+ytick.major.size     : 8
+ytick.minor.size     : 4
+ytick.major.pad      : 4
+ytick.minor.pad      : 4
+ytick.labelsize      : 12
+ytick.direction      : in     # direction: in or out
