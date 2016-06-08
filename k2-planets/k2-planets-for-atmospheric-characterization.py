@@ -56,7 +56,7 @@ pl.legend(bbox_to_anchor=(0., 1., 1., 0.),
 # Annotations
 pl.annotate("Earth and Super Earth-size Candidates\n"
             "Orbiting Cool Dwarfs",
-            style='italic',
+            #style='italic',
             xy=(2.5, 2900), xycoords='data',
             xytext=(2.8, 2900), textcoords='data',
             va="center", size=12,
