@@ -32,6 +32,7 @@ grid.color  : 7f8c8d
 
 savefig.facecolor: black
 savefig.edgecolor: black
+savefig.dpi: 200
 
 # Tick settings
 xtick.major.size     : 8
