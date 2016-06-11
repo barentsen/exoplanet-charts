@@ -26,6 +26,7 @@ current_year = datetime.datetime.now().year
 
 palette = sns.color_palette(['#f1c40f', '#2980b9'])
 style.use('../styles/black.mplstyle')
+plt.rc('xtick.major', size=0)
 plt.rc('ytick.major', size=0)
 
 
@@ -98,7 +99,7 @@ ax.spines["bottom"].set_visible(False)
 ax.get_xaxis().tick_bottom()
 ax.get_yaxis().tick_left()
 # Only show horizontal grid lines
-ax.grid(axis='x')
+ax.grid(axis='y')
 
 n_pub = sum(counts['kepler'].values()) + sum(counts['k2'].values())
 plt.suptitle("Kepler/K2 Contributed to "
