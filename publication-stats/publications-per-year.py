@@ -47,7 +47,7 @@ for mission in MISSIONS:
         counts[mission][int(row[0])] = row[1]
 
 # Now make the actual plot
-fig = plt.figure()
+fig = plt.figure(figsize=(8, 6))
 ax = fig.add_subplot(111)
 plt.bar(np.array(list(counts['kepler'].keys())) - 0.5*barwidth,
         counts['kepler'].values(),
