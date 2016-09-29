@@ -40,7 +40,7 @@ def binning(data, bins):
     return np.histogram(data, bins=bins)[0]
 
 
-fig = pl.figure()
+fig = pl.figure(figsize=(8, 4.5))
 pl.subplots_adjust(left=0.12, right=0.98,
                     bottom=0.15, top=0.98,
                     hspace=0.2)
@@ -66,7 +66,7 @@ ax_k.spines["bottom"].set_visible(False)
 # Only show bottom and left ticks
 ax_k.get_xaxis().tick_bottom()
 ax_k.get_yaxis().tick_left()
-pl.grid(axis='x')
+pl.grid(axis='y')
 pl.yticks([0, 10, 20, 30], fontsize=18)
 pl.xticks([1, 2, 3, 4],
           ['0-5 yrs', '5-10 yrs', '10-20 yrs', '20+ yrs'],
@@ -75,7 +75,7 @@ pl.xticks([1, 2, 3, 4],
 ax_k.set_xlabel('Seniority of lead author (years since first paper)',
                 fontsize=18)
 ax_k.set_ylabel("Exoplanet papers", fontsize=18)
-pl.suptitle("K2's Open Data Policy Empowers Early-Career Astronomers", fontsize=22)
+pl.suptitle("K2's Open Data Policy Empowers Early-Career Astronomers", fontsize=19)
 
 pl.legend(bbox_to_anchor=(1, 0.95),
           ncol=1,
