@@ -5,7 +5,7 @@ from matplotlib import style
 import seaborn as sns
 import pandas as pd
 
-SHOW_KEPLER = False
+SHOW_KEPLER = False #True
 K_MAGNITUDE_CUT = 11
 OUTPUT_PREFIX = 'k2-planets-for-atmospheric-characterization'
 OUTPUT_SUFFIX = '.png'
@@ -16,12 +16,12 @@ if SHOW_KEPLER:
 palette = sns.color_palette(['#f1c40f', '#2980b9'])
 style.use('../styles/black.mplstyle')
 
-k2_df = pd.read_csv('../data/k2-planets.csv')
+k2_df = pd.read_csv('../data/k2-candidate-planets.csv')
 k2_df = k2_df[k2_df.st_k2 <= K_MAGNITUDE_CUT]
 
 print('Plotting {} points.'.format(len(k2_df)))
 
-fig = pl.figure()
+fig = pl.figure(figsize=(8, 4.5))
 pl.fill_between([.5, .5, 2.5, 2.5, .5],
                 [2000, 4000, 4000, 2000, 2000],
                 zorder=-1, alpha=0.3,
@@ -39,11 +39,13 @@ pl.scatter(k2_df.pl_rade, k2_df.st_teff,
            zorder=30)
 
 if SHOW_KEPLER:
-    kepler_df = pd.read_csv('../data/kepler-candidates.csv')
+    kepler_df = pd.read_csv('../data/kepler-candidate-planets.csv')
     kepler_df = kepler_df[kepler_df.koi_kmag <= K_MAGNITUDE_CUT]
     pl.scatter(kepler_df.koi_prad, kepler_df.koi_steff,
-               lw=0.4, s=35, label='Kepler',
-               facecolor='#2980b9', edgecolor='black',
+               lw=0.4, s=35,
+               label='Kepler',
+               facecolor='#2980b9',
+               edgecolor='black',
                zorder=20)
 
 pl.legend(bbox_to_anchor=(0., 1., 1., 0.),
@@ -51,7 +53,8 @@ pl.legend(bbox_to_anchor=(0., 1., 1., 0.),
           ncol=2,
           borderaxespad=0.,
           handlelength=0.8,
-          frameon=False)
+          frameon=False,
+          scatterpoints=3)
 
 # Annotations
 pl.annotate("Earth and Super Earth-size Candidates\n"
