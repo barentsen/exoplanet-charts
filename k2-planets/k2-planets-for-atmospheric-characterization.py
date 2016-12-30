@@ -5,7 +5,7 @@ from matplotlib import style
 import seaborn as sns
 import pandas as pd
 
-SHOW_KEPLER = False #True
+SHOW_KEPLER = True #True
 K_MAGNITUDE_CUT = 11
 OUTPUT_PREFIX = 'k2-planets-for-atmospheric-characterization'
 OUTPUT_SUFFIX = '.png'
@@ -33,7 +33,9 @@ pl.plot([.5, .5, 2.5, 2.5, .5],
                 color='white',
                 lw=1.5, linestyle='dotted',
                 dashes=[2, 4])
-pl.scatter(k2_df.pl_rade, k2_df.st_teff,
+
+grp = k2_df.groupby('epic_candname')
+pl.scatter(grp.pl_rade.mean(), grp.st_teff.mean(),
            lw=0.4, s=35, label='K2',
            facecolor=palette[0], edgecolor='black',
            zorder=30)
