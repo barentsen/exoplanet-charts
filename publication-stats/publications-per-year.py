@@ -49,13 +49,13 @@ for mission in MISSIONS:
 # Now make the actual plot
 fig = plt.figure(figsize=(8, 4.5))
 ax = fig.add_subplot(111)
-plt.bar(np.array(list(counts['kepler'].keys())) - 0.5*barwidth,
+plt.bar(np.array(list(counts['kepler'].keys())),
         counts['kepler'].values(),
         label='Kepler',
         facecolor=palette[1],
         edgecolor='black',
         width=barwidth)
-plt.bar(np.array(list(counts['k2'].keys())) - 0.5*barwidth,
+plt.bar(np.array(list(counts['k2'].keys())),
         counts['k2'].values(),
         bottom=counts['kepler'].values(),
         label='K2',
@@ -68,8 +68,8 @@ if extrapolate:
     fraction_of_year_passed = float(now.strftime("%-j")) / 365.2425
     current_total = (counts['kepler'][current_year] +
                      counts['k2'][current_year])
-    expected = (1/fraction_of_year_passed - 1) * current_total
-    plt.bar(current_year - 0.5*barwidth,
+    expected = (1/fraction_of_year_passed - 1.5) * current_total
+    plt.bar(current_year,
             expected,
             bottom=current_total,
             label='Extrapolation',
@@ -80,8 +80,8 @@ if extrapolate:
 # Aesthetics
 plt.ylabel("Publications per year", fontsize=18)
 ax.get_xaxis().get_major_formatter().set_useOffset(False)
-plt.xticks(range(first_year - 1, current_year + 1), fontsize=18)
-plt.yticks(range(0, 501, 100), fontsize=18)
+plt.xticks(range(first_year - 1, current_year + 1), fontsize=14)
+plt.yticks(range(0, 501, 100), fontsize=14)
 plt.xlim([first_year - 0.75*barwidth, current_year + 0.75*barwidth])
 plt.legend(bbox_to_anchor=(0.1, 1),
            loc='upper left',
